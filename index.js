@@ -18,11 +18,13 @@ function save(urlOrMediaId, dir) {
         const filename = post.filename;
         const isVideo = post.isVideo;
         const mimeType = post.mimeType;
+        const username = post.username;
         const file = `${dir}/${filename}`;
 
         downloadAndSave(downloadUrl, file).then(() => {
           return resolve({
             file,
+            username,
             mimeType,
             url,
             label: isVideo ? 'video' : 'photo',
